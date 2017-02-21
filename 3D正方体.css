@@ -1,0 +1,227 @@
+body,div{
+    margin: 0;
+    padding: 0;
+    behavior: url(public/PIE.php);
+}
+.stage{
+    width: 100%;
+    perspective: 1000px;
+    -ms-perspective: 1000px;
+    -moz-perspective: 1000px;
+    -webkit-perspective: 1000px;
+}
+
+/*伪类做阴影*/
+.stage:before{
+    content: '';
+    display: block;
+    width: 160px;
+    height: 100px;
+    border-radius: 80px;
+    box-shadow:inset 0 0 240px rgba(0,0,0,0.3);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    margin-left: -80px;
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    -ms-transform: rotateX(90deg);
+    -o-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+}
+.stage:after{
+    content: '';
+    display: block;
+    width: 160px;
+    height: 100px;
+    border-radius: 80px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5);
+    position: absolute;
+    bottom: -30px;
+    left: 50%;
+    margin-left: -80px;
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    -ms-transform: rotateX(90deg);
+    -o-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+}
+.box{
+    width: 400px;
+    height: 400px;
+    margin: 0 auto;
+    position: relative;
+
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -ms-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+
+    //设置盒子动画，将运动中心设为中心，注意Z轴不能设置百分比形式
+    -webkit-transform-origin:center center 100px;
+    -moz-transform-origin:center center 100px;
+    -ms-transform-origin:center center 100px;
+    -o-transform-origin:center center 100px;
+    transform-origin:center center 100px;
+
+    -webkit-animation:run 20s ease-in-out infinite;
+    -moz-animation:run 20s ease-in-out infinite;
+    -ms-animation:run 20s ease-in-out infinite;
+    -o-animation:run 20s ease-in-out infinite;
+    animation:run 20s ease-in-out infinite;
+}
+
+.box .slide{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+}
+.box .slide img{
+    display: block;
+    width: 100%;
+    height: 100%;
+}
+.top{
+    top:100px;
+    left: 100px;
+    background: paleturquoise;
+    -webkit-transform-origin: top center;
+    -moz-transform-origin: top center;
+    -ms-transform-origin: top center;
+    -o-transform-origin: top center;
+    transform-origin: top center;
+    -webkit-transform: rotateX(90deg);
+    -moz-transform: rotateX(90deg);
+    -ms-transform: rotateX(90deg);
+    -o-transform: rotateX(90deg);
+    transform: rotateX(90deg);
+}
+.bottom{
+    bottom: 100px;
+    right: 100px;
+    background: palegreen;
+    -webkit-transform-origin: bottom center;
+    -moz-transform-origin: bottom center;
+    -ms-transform-origin: bottom center;
+    -o-transform-origin: bottom center;
+    transform-origin: bottom center;
+    -webkit-transform: rotateX(-90deg);
+    -moz-transform: rotateX(-90deg);
+    -ms-transform: rotateX(-90deg);
+    -o-transform: rotateX(-90deg);
+    transform: rotateX(-90deg);
+}
+.left{
+    top: 100px;
+    left: 100px;
+    background: orchid;
+    -webkit-transform-origin: left center;
+    -moz-transform-origin: left center;
+    -ms-transform-origin: left center;
+    -o-transform-origin: left center;
+    transform-origin: left center;
+    -webkit-transform: rotateY(-90deg);
+    -moz-transform: rotateY(-90deg);
+    -ms-transform: rotateY(-90deg);
+    -o-transform: rotateY(-90deg);
+    transform: rotateY(-90deg);
+}
+.right{
+    top: 100px;
+    right: 100px;
+    background: papayawhip;
+    -webkit-transform-origin: right center;
+    -moz-transform-origin: right center;
+    -ms-transform-origin: right center;
+    -o-transform-origin: right center;
+    transform-origin: right center;
+    -webkit-transform: rotateY(90deg);
+    -moz-transform: rotateY(90deg);
+    -ms-transform: rotateY(90deg);
+    -o-transform: rotateY(90deg);
+    transform: rotateY(90deg);
+}
+.front{
+    top: 100px;
+    left: 100px;
+    background: pink;
+    -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    -ms-transform-origin: center;
+    -o-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: translateZ(200px);
+    -moz-transform: translateZ(200px);
+    -ms-transform: translateZ(200px);
+    -o-transform: translateZ(200px);
+    transform: translateZ(200px);
+}
+.back{
+    top: 100px;
+    left: 100px;
+    background: yellow;
+    -webkit-transform-origin: center;
+    -moz-transform-origin: center;
+    -ms-transform-origin: center;
+    -o-transform-origin: center;
+    transform-origin: center;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+@keyframes run {
+    0%{
+        -webkit-transform: rotateX(10deg) rotateY(0deg);
+        -moz-transform: rotateX(10deg) rotateY(0deg);
+        -ms-transform: rotateX(10deg) rotateY(0deg);
+        -o-transform: rotateX(10deg) rotateY(0deg);
+        transform: rotateX(10deg) rotateY(0deg);
+    }
+    10%{
+        -webkit-transform: rotateX(-10deg) rotateY(90deg);
+        -moz-transform: rotateX(-10deg) rotateY(90deg);
+        -ms-transform: rotateX(-10deg) rotateY(90deg);
+        -o-transform: rotateX(-10deg) rotateY(90deg);
+        transform: rotateX(-10deg) rotateY(90deg);
+    }
+    20%{
+        -webkit-transform: rotateX(10deg) rotateY(180deg);
+        -moz-transform: rotateX(10deg) rotateY(180deg);
+        -ms-transform: rotateX(10deg) rotateY(180deg);
+        -o-transform: rotateX(10deg) rotateY(180deg);
+        transform: rotateX(10deg) rotateY(180deg);
+    }
+    30%{
+        -webkit-transform: rotateX(-10deg) rotateY(270deg);
+        -moz-transform: rotateX(-10deg) rotateY(270deg);
+        -ms-transform: rotateX(-10deg) rotateY(270deg);
+        -o-transform: rotateX(-10deg) rotateY(270deg);
+        transform: rotateX(-10deg) rotateY(270deg);
+    }
+    40%{
+        transform: rotateX(10deg) rotateY(360deg);
+    }
+    50%{
+        transform: rotateX(90deg) rotateY(360deg);
+    }
+    60%{
+        transform: rotateX(270deg) rotateY(360deg);
+    }
+    70%{
+        transform: rotateX(360deg) rotateY(270deg);
+    }
+    80%{
+        transform: rotateX(90deg) rotateY(360deg);
+    }
+    90%{
+        transform: rotateX(0deg) rotateY(90deg);
+    }
+    100%{
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+
+}
